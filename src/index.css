@@ -1,13 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap');
+
+* {
+  font-family: 'IBM Plex Sans', 'Avenir', sans-serif;
+  box-sizing: border-box;
+}
+
+html, body, #root, .App { 
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+/** <=================================== Login page ========================================> **/
+.login-page {
+  width: 100%;
+  height: 100%;
+}
+
+.login-page .login-segment {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  color: #1b1b1d;
+  padding: 50px;
+}
+
+.login-page .pattern-segment {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  vertical-align: top;
+  background-size: cover;
+}
+
+.login-page  .login-segment .logo {
+  height: 65px;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.menu-horizontal {
+  border-bottom: 1px solid #ececec;
+  height: 40px;
+  margin-top: 50px;
+}
+
+.menu-horizontal .option {
+  border-bottom: 2px solid #fff;
+  width: 150px;
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+  transition: ease-in-out 0.2s border-bottom;
+  cursor: pointer;
+}
+
+.menu-horizontal .option.selected {
+  border-bottom: 2px solid #3277f0;
+}
+
+.menu-horizontal .option:hover {
+  border-bottom: 2px solid #3277f0;
+}
+
+.login-form {
+  padding: 30px 0;
+}
+
+h1.motto {
+  font-size: 1.4rem;
+  margin: 30px 0;
+  color: #a1a1a1;
+  font-weight: 400;
+}
+
+input.textbox {
+  font-size: 1rem;
+  line-height: 2.4rem;
+  height: 2.4rem;
+  width: 100%;
+  border-radius: 3px;
+  outline: none;
+  border: 1px solid #a1a1a1;
+  padding: 0 0 0 5px;
+}
+
+textarea {
+  font-size: 1rem;
+  line-height: 1.4rem;
+  height: 5.6rem;
+  width: 100%;
+  border-radius: 3px;
+  outline: none;
+  border: 1px solid #a1a1a1;
+  padding: 0 0 0 5px;
+  margin: 10px 0;
+}
+
+textarea:focus {
+  border: 1px solid #3277f0;
+}
+
+input.textbox:focus {
+  border: 1px solid #3277f0;
+}
+
+button.normal-button {
+  background: #3277f0;
+  color: #fff;
+  width: 150px;
+  font-size: 1rem;
+  outline: 0;
+  border: none;
+  height: 2.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: ease-in-out 0.2s background;
+}
+
+button.normal-button:hover {
+  background: #215cc2;
 }
