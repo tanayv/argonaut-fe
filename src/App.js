@@ -3,8 +3,9 @@ import React from 'react';
 /** Components */
 import Login from './Login';
 import DashboardSeller from './DashboardSeller';
+import DashboardBuyer from './DashboardBuyer';
 
-
+import axios from 'axios';
 
 class App extends React.Component {
 
@@ -17,7 +18,9 @@ class App extends React.Component {
     this.state = {
       userType: null,
       algorandId: null,
-      mnemonic: null
+      mnemonic: null,
+      balance: 0,
+      transactions: []
     }
     this.registerUserBasicDetails = this.registerUserBasicDetails.bind(this);
   }
@@ -29,7 +32,19 @@ class App extends React.Component {
     if (this.state.userType === null)
       activeComponent = <Login onLogin={(payload) => this.registerUserBasicDetails(payload)}/>;
     else if (this.state.userType === 0) {
-      activeComponent = <DashboardSeller/>;
+      activeComponent = <DashboardSeller 
+        algorandId={this.state.algorandId}
+        transactions={this.state.transactions}
+        balance={this.state.balance}
+        onLogout={(e) => this.logout(e)}/>;
+    }
+    else if (this.state.userType === 1) {
+      activeComponent = <DashboardBuyer 
+        algorandId={this.state.algorandId}
+        mnemonic={this.state.mnemonic}
+        transactions={this.state.transactions}
+        balance={this.state.balance}
+        onLogout={(e) => this.logout(e)}/>;;
     }
     return (
       <div className="App">
@@ -40,11 +55,42 @@ class App extends React.Component {
   }
 
   registerUserBasicDetails = (payload) => {
-    console.log("Login call received", payload);
+    
+    let self = this;
+    let userLiteral;
+    if (payload.userType === 0)
+      userLiteral = `seller`;
+    else
+      userLiteral = `buyer`;
+    let url = `http://fargonaut.herokuapp.com/transactions?account=${payload.algorandId}&type=${userLiteral}`;
+    console.log("Making query to: ", url);
+    axios.get(url)
+      .then(function (response) {
+        // handle success
+        console.log("Transactions for account", response.data);
+        self.setState({
+          balance: response.data.amount,
+          transactions: response.data.transactions,
+          userType: payload.userType,
+          algorandId: payload.algorandId,
+          mnemonic: payload.mnemonic
+        });
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+  }
+
+  logout = (e) => {
+    e.preventDefault();
     this.setState({
-      userType: payload.userType,
-      algorandId: payload.algorandId,
-      mnemonic: payload.mnemonic
+      userType: null,
+      algorandId: null,
+      mnemonic: null
     });
   }
 }

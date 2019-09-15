@@ -85,8 +85,7 @@ class Login extends React.Component {
         });
     }
 
-    storeLoginDetail = (detail, value) => {
-        console.log(detail, value);
+    storeLoginDetail = (detail, value) => { 
         if (detail === 0)
             this.setState({
                 algorandId: value
