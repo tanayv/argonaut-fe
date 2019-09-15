@@ -1,6 +1,7 @@
 import React from "react";
 
 import pattern from "./assets/login_bg.jpg";
+
 import logo from "./assets/logo.png";
 
 
@@ -9,9 +10,12 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            userType: 0
+            userType: 0,
+            algorandId: null,
+            mnemonic: ``
+
         }
-        this.fileUplaodHandler = this.fileUplaodHandler.bind(this);
+        this.storeLoginDetail = this.storeLoginDetail.bind(this);
         this.selectUserType = this.selectUserType.bind(this);
     }
 
@@ -21,24 +25,29 @@ class Login extends React.Component {
 
         if (this.state.userType === 0) {
             dynamicFormElement = <div className="login-form">
-            <input className="textbox" type="text" placeholder={`Algorand ID`}/>
+            <input className="textbox" type="text" placeholder={`Algorand ID`} onChange={(e) => this.storeLoginDetail(0, e.target.value)}/>
             <p align="right">
-                <button className="normal-button">Login</button>
+                <button onClick={(e) => this.props.onLogin({
+                    userType: this.state.userType,
+                    algorandId: this.state.algorandId,
+                    mnemonic: this.state.mnemonic
+                })} className="normal-button">Login</button>
             </p>
             </div>;
         }
 
         else if (this.state.userType === 1)
             dynamicFormElement = <div className="login-form">
-            <input className="textbox" type="text" placeholder={`Algorand ID`}/>
-                <textarea placeholder="Enter Mnemonic"/>
+            <input className="textbox" type="text" placeholder={`Algorand ID`} onChange={(e) => this.storeLoginDetail(0, e.target.value)}/>
+                <textarea placeholder="Enter Mnemonic" onChange={(e) => this.storeLoginDetail(1, e.target.value)}/>
             <p align="right">
-                <button className="normal-button">Login</button>
+                <button onClick={(e) => this.props.onLogin({
+                    userType: this.state.userType,
+                    algorandId: this.state.algorandId,
+                    mnemonic: this.state.mnemonic
+                })} className="normal-button">Login</button>
             </p>
             </div>;
-
-
-
 
 
         return (
@@ -69,18 +78,23 @@ class Login extends React.Component {
         )
     }
 
-    fileUplaodHandler = (e) => {
-        this.setState({
-            selectedFile: e.target.files[0],
-            loaded: 0,
-        });
-    }
-
     selectUserType = (e, type) => {
         e.preventDefault();
         this.setState({
             userType: type
         });
+    }
+
+    storeLoginDetail = (detail, value) => {
+        console.log(detail, value);
+        if (detail === 0)
+            this.setState({
+                algorandId: value
+            });
+        if (detail === 1)
+            this.setState({
+                mnemonic: value
+            })
     }
 
     

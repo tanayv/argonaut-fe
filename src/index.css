@@ -128,3 +128,137 @@ button.normal-button {
 button.normal-button:hover {
   background: #215cc2;
 }
+
+/** <============================ Dashboard =====================================> **/
+
+.dashboard-container {
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar {
+  height: 100%;
+  display: inline-block;
+  width: 20%;
+  vertical-align: top;
+  padding: 40px 0;
+  background: #1b1b1d;
+}
+
+.sidebar .logo {
+  width: 100%;
+  height: 65px;
+  background-size: contain;
+  background-position: left;
+  background-repeat: no-repeat;
+  margin-left: 30px;
+}
+
+.sidebar .navigation-options {
+  padding: 0 30px;
+  margin: 35px 0;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.sidebar .navigation-options h1 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 25px 0;
+  cursor: pointer;
+}
+
+.sidebar .navigation-options h1:hover {
+  color: #215cc2;
+}
+
+
+.workbench {
+  background: #1b1b1d;
+  height: 100%;
+  display: inline-block;
+  width: 80%;
+  vertical-align: top;
+  padding: 40px;
+}
+
+.workbench h1.title {
+  margin-top: 0;
+  color: #fff;
+  margin-bottom: 7.5px;
+}
+
+.workbench h2.instruction {
+  margin-top: 0;
+  color: #d6d6d6;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.card {
+  height: 350px;
+  padding: 30px;
+  color: #fff;
+  width: 250px;
+  position: relative;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01), 0 3px 24px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01), 0 3px 24px rgba(0, 0, 0, 0.6);
+}
+
+.card h1 {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.card table {
+  width: 100%;
+}
+
+.card .icon {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.card table tr th {
+  text-align: left;
+}
+
+.card table tr td, .card table tr th {
+  padding: 15px 0;
+}
+
+.card table tr:not(:last-of-type) th, .card table tr:not(:last-of-type) td {
+  border-bottom: 1px solid #646464;
+}
+
+.card table tr td {
+  text-align: right;
+}
+
+.card button {
+  border: none;
+  background:#3277f0;
+  color: #fff;
+  outline: none;
+  font-size: 0.9rem;
+  height: 2.5rem;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 3px;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+.card button:hover {
+  background: #215cc2;
+}
+
+.card-flex {
+  padding: 40px 0;
+}
