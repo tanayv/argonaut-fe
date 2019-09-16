@@ -19,21 +19,21 @@ class DashboardSeller extends React.Component {
                     icon: `fas fa-route`,
                     title: `Commute History`,
                     type: `Passive`,
-                    reward: 6750,
+                    reward: 67500000,
                     onBegin: null
                 },
                 {
                     icon: `fas fa-traffic-light`,
                     title: `Streetlighting Survey`,
                     type: `Active`,
-                    reward: 11000,
+                    reward: 11000000,
                     onBegin: null
                 },
                 {
                     icon: `fas fa-taxi`,
                     title: `Ridesharing History`,
                     type: `Passive`,
-                    reward: 8890,
+                    reward: 889000000,
                     onBegin: null
                 },
                 
@@ -111,7 +111,7 @@ class DashboardSeller extends React.Component {
                         <h3 className="company">Algorand ID</h3> <h1 className="crypto">{this.state.transactionData.algorandId}</h1>
                     </div>
                     <div className="micro-card">
-                        <h3 className="company">Balance</h3> <h1>{this.state.transactionData.balance}</h1><h1 className="currency">ALGO</h1>
+                        <h3 className="company">Balance</h3> <h1>{this.state.transactionData.balance}</h1><h1 className="currency">MICRO</h1>
                     </div>
                 </div>
                 

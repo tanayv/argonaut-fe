@@ -2,7 +2,7 @@ import React from "react";
 import logo from "./assets/logo_circle.png";
 
 import WorkbenchTransactionCard from "./WorkbenchTransactionCard";
-import WorkbenchFlowCard from "./WorkbenchFlowCard";
+import WorkbenchGlowCard from "./WorkbenchGlowCard";
 import DatasetPreview from "./DatasetPreview";
 
 import axios from "axios";
@@ -94,7 +94,7 @@ class DashboardBuyer extends React.Component {
                 <div className="card-flex">
                     {
                         this.state.campaigns.map((campaign, i) => (
-                            <WorkbenchFlowCard
+                            <WorkbenchGlowCard
                                 key={i}
                                 icon={campaign.icon}
                                 title={campaign.title}
@@ -116,7 +116,7 @@ class DashboardBuyer extends React.Component {
                         <h3 className="company">Algorand ID</h3> <h1 className="crypto">{this.state.transactionData.algorandId}</h1> <h1 className="crypto">{this.state.transactionData.mnemonic}</h1>
                     </div>
                     <div className="micro-card">
-                        <h3 className="company">Balance</h3> <h1>{this.state.transactionData.balance}</h1><h1 className="currency">ALGO</h1>
+                        <h3 className="company">Balance</h3> <h1>{this.state.transactionData.balance}</h1><h1 className="currency">MICRO</h1>
                     </div>
                 </div>
                 
@@ -125,7 +125,10 @@ class DashboardBuyer extends React.Component {
                 <div className="card-flex low-padding">
                     {
                         this.state.transactionData.transactions.map((transaction, i) => (
-                            <WorkbenchTransactionCard key={i} companyName={transaction.key}/>
+                            <div className="micro-card" key={i}>
+                                <h3 className="company">Transit Data API Key</h3>
+                                <h1 className="currency">{transaction.key}</h1>
+                            </div>
                         ))
                     }
                     

@@ -6,7 +6,7 @@ class WorkbenchTransactionCard extends React.Component {
         <div className="micro-card">
             <h3 className="company">{this.props.companyName}</h3>
             <h1 className="amount">{this.props.amount}</h1>
-            <h1 className="currency">ALGO</h1>
+            <h1 className="currency">MICRO</h1>
         </div>
     )
 }

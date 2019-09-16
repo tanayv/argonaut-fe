@@ -1,6 +1,6 @@
 import React from "react";
 
-const WorkbenchFlowCard = (props) => (
+const WorkbenchGlowCard = (props) => (
     <div className="card">
         <div className="icon">
             <i className={props.icon}></i>
@@ -13,13 +13,13 @@ const WorkbenchFlowCard = (props) => (
                     <td>{props.type}</td>
                 </tr>
                 <tr>
-                    <th>Reward</th>
+                    <th>Price</th>
                     <td>{props.reward} MICRO</td>
                 </tr>
             </tbody>
         </table>
-        <button onClick={(e) => props.onBegin(e)}>Begin</button>
+        <button onClick={(e) => props.onBegin(e)}>Explore</button>
     </div>
 )
 
-export default WorkbenchFlowCard
+export default WorkbenchGlowCard

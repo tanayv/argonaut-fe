@@ -270,6 +270,8 @@ button.normal-button:hover {
 
 .card-flex.low-padding {
   padding: 10px 0;
+  height: 210px;
+  overflow: auto;
 }
 
 .micro-card {

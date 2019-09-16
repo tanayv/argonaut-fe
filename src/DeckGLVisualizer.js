@@ -3,7 +3,7 @@ import {StaticMap} from 'react-map-gl';
 import DeckGL, {ScreenGridLayer} from 'deck.gl';
 import {isWebGL2} from '@luma.gl/core';
 
-import austin_data from "./assets/maps/austin_deckgl.json";
+import austin_data from "./assets/uber_pickup_deckgl.json";
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = "pk.eyJ1IjoiYWJoaXNoZWtkcHNlb2siLCJhIjoiY2swa2ltcno2MGx4bjNsbnd2bWZseDhyNSJ9.0g7Ey_9_CZ5vbQrRa7NOCQ"; // eslint-disable-line
